@@ -1,0 +1,143 @@
+<!doctype html>
+<html ng-app="customersApp" class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ET570</title>
+
+    <!-- The font Awesome code below is several revisions back.
+          https://stackoverflow.com/questions/14698589/fontawesome-not-available-as-a-font-family
+           I discovered that it would work from an article on stack overflow.  all code should at some point be updated to relfect the last calling syntax for font awesome -->
+
+          <link href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+  <script src="js/vendor/angular.min.js"></script>
+  <script src="js/vendor/angular-animate.min.js"></script>
+  <script src="js/vendor/angular-route.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+  </head>
+
+
+
+  <body>
+<!-- Begin Nav -->
+<div class="mobile-nav-bar title-bar">
+  <div class="title-bar-left">
+    <button class="menu-icon" type="button"></button>
+  </div>
+  <div class="title-bar-center">
+    <span class="title-bar-text">JetBlue</span>
+  </div>
+  <div class="title-bar-right">
+    <span class="title-bar-text">Actions</span>
+    <span class="title-bar-text"><a href="#"><i class="fa fa-home title-bar-logo"></i></a></span>
+  </div>
+</div>
+<!-- End Nav -->
+
+<!-- Begin Content -->
+<div ng-view></div>
+<!-- End Content -->
+
+
+<!-- Begin Footer -->
+<div class="mobile-bottom-bar">
+  <a href="#" class="footer-link">
+    <i class="fa fa-cog"></i> <span class='footer-text'>Settings</span>
+  </a>
+  <a href="#" class="footer-link">
+    <i class="fa fa-sign-out"></i> <span class='footer-text'>Log out</span>
+  </a>
+</div>
+<!-- End Footer -->
+
+
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+
+
+    <script>
+               var app = angular.module('customersApp',['ngRoute']);
+               app.config(function($routeProvider) {
+                 $routeProvider.when('/',
+                   {
+                     controller:'CustomersController',
+                     templateUrl: 'app/views/main.html'
+                   })
+                 .when('/book',
+                   {
+                     controller: 'BookController',
+                     templateUrl: 'app/views/book.html'
+                   })
+                   .when('/menu',
+                     {
+                       controller: 'MenuController',
+                       templateUrl: 'app/views/menu.html'
+                     })
+                  .when('/flight_status',
+                     {
+                       controller: 'FlightStatusController',
+                       templateUrl: 'app/views/flight_status.html'
+                     })
+                     .when('/etfinals',
+                        {
+                          controller: 'ETFinalsController',
+                          templateUrl: 'app/views/etfinals.html'
+                        })
+                  .when('/story',
+                     {
+                       controller: 'StoryController',
+                       templateUrl: 'app/views/story.html'
+                     })
+                 .when('/adam',
+                    {
+                      controller: 'AdamController',
+                      templateUrl: 'app/views/adam.html'
+                    })
+               });
+               app.controller('BookController', function($scope){
+                 $scope.customerID = 5;
+               });
+               app.controller('MenuController', function($scope){
+                 $scope.customerID = 5;
+               });
+               app.controller('StoryController', function($scope){
+                 $scope.customerID = 5;
+               });
+               app.controller('FlightStatusController', function($scope){
+                 $scope.customerID = 5;
+               });
+               app.controller('ETFinalsController', function($scope){
+                 $scope.customerID = 5;
+               });
+               app.controller('AdamController', function($scope){
+                 $scope.customerID = 5;
+               });
+               app.controller('CustomersController', function($scope) {
+                 $scope.customers = [
+                     {"id": 1, "name":"Ted", "total": 5.996},
+                     {"id": 2, "name":"Michelle", "total": 10.994},
+                     {"id": 3, "name":"Zed", "total": 10.99},
+                     {"id": 4, "name":"Tina", "total": 15.994}
+                   ];
+                 });
+             </script>
+
+
+
+
+
+  </body>
+</html>
